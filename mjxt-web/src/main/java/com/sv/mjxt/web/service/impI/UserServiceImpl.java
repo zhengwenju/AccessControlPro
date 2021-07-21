@@ -1,5 +1,7 @@
 package com.sv.mjxt.web.service.impI;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,4 +25,10 @@ public class UserServiceImpl implements UserService {
 
         return userMapper.add(user);
     }
+
+	@Override
+	public List<String> getRegion(String pid) {
+		// TODO Auto-generated method stub
+		return userMapper.getRegion(pid);
+	}
 }

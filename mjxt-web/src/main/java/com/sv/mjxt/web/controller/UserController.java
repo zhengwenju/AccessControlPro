@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sv.mjxt.web.entity.TbVehicleInfo;
 import com.sv.mjxt.web.entity.User;
 import com.sv.mjxt.web.service.UserService;
 
@@ -46,6 +48,11 @@ public class UserController {
         }
         return modelMap;
     }
+    
+    @GetMapping("/getRegion")
+	public List<String> getRegion(@RequestParam String pid) {
+		return userService.getRegion(pid);
+	}
 
     @PostMapping("/reg")
     public Map<String, Object> reg(@RequestParam String username, String password) {
